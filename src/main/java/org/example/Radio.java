@@ -42,7 +42,9 @@ public class Radio {
         if (newCurrentVolume > 100) {
             return;
         }
-
+        if (newCurrentVolume < 0) {
+            return;
+        }
         currentVolume = newCurrentVolume;
     }
 
