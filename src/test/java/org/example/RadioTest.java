@@ -80,6 +80,17 @@ public class RadioTest {
     }
 
     @Test
+    public void shouldCurrentNumberBelowMin() {
+        Radio number = new Radio();
+        number.setCurrentNumber(-2);
+
+        int expected = 0;
+        int actual = number.getCurrentNumber();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
     public void shouldCurrentVolume() {
         Radio volume = new Radio();
         volume.setCurrentVolume(25);
@@ -89,6 +100,29 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
+    @Test
+    public void shouldCurrentVolumeBelowMin() {
+        Radio volume = new Radio();
+        volume.setCurrentVolume(-1);
+
+        int expected = 0;
+        int actual = volume.getCurrentVolume();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldCurrentVolumeAboveMax() {
+        Radio volume = new Radio();
+        volume.setCurrentVolume(101);
+
+        int expected = 100;
+        int actual = volume.getCurrentVolume();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
 
     @Test
     public void shouldNextVolume() {
