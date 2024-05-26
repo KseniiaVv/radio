@@ -28,13 +28,17 @@ public class Radio {
     public void setNextNumber() {
         if (currentNumber < 9) {
             currentNumber = currentNumber + 1;
-        } else currentNumber = 0;
+        } else {
+            currentNumber = 0;
+        }
     }
 
     public void setPrevNumber() {
         if (currentNumber > 0) {
             currentNumber = currentNumber - 1;
-        } else currentNumber = 9;
+        } else {
+            currentNumber = 9;
+        }
     }
 
     public void setCurrentVolume(int newCurrentVolume) {
@@ -51,13 +55,17 @@ public class Radio {
     public void setNextVolume() {
         if (currentVolume < 100) {
             currentVolume = currentVolume + 1;
-        } else currentVolume = 100;
+        } else {
+            currentVolume = 100;
+        }
     }
 
     public void setPrevVolume() {
         if (currentVolume > 0) {
             currentVolume = currentVolume - 1;
-        } else currentVolume = 0;
+        } else {
+            currentVolume = 0;
+        }
     }
 }
 
