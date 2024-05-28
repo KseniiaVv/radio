@@ -7,9 +7,22 @@ import org.junit.jupiter.api.Test;
 public class RadioTest {
 
     @Test
+    public void shouldGetNumber() {
+        Radio number = new Radio(10);
+
+        Assertions.assertEquals(0, number.getMinNumber());
+        Assertions.assertEquals(9, number.getMaxNumber());
+        Assertions.assertEquals(0, number.getCurrentNumber());
+
+    }
+
+
+
+    @Test
     public void shouldNextNumber() {
-        Radio number = new Radio();
+        Radio number = new Radio(10);
         number.setCurrentNumber(0);
+
         number.setNextNumber();
 
         int expected = 1;
@@ -20,12 +33,12 @@ public class RadioTest {
 
     @Test
     public void shouldPrevNumber() {
-        Radio number = new Radio();
-        number.setCurrentNumber(1);
+        Radio number = new Radio(10);
+        number.setCurrentNumber(9);
 
         number.setPrevNumber();
 
-        int expected = 0;
+        int expected = 8;
         int actual = number.getCurrentNumber();
 
         Assertions.assertEquals(expected, actual);
@@ -33,7 +46,7 @@ public class RadioTest {
 
     @Test
     public void shouldNextNumberAboveMax() {
-        Radio number = new Radio();
+        Radio number = new Radio(10);
         number.setCurrentNumber(9);
         number.setNextNumber();
 
@@ -46,7 +59,7 @@ public class RadioTest {
 
     @Test
     public void shouldPrevNumberBelowMin() {
-        Radio number = new Radio();
+        Radio number = new Radio(10);
         number.setCurrentNumber(0);
 
         number.setPrevNumber();
@@ -59,7 +72,7 @@ public class RadioTest {
 
     @Test
     public void shouldCurrentNumber() {
-        Radio number = new Radio();
+        Radio number = new Radio(10);
         number.setCurrentNumber(7);
 
         int expected = 7;
@@ -70,7 +83,7 @@ public class RadioTest {
 
     @Test
     public void shouldCurrentNumberAboveMax() {
-        Radio number = new Radio();
+        Radio number = new Radio(10);
         number.setCurrentNumber(10);
 
         int expected = 0;
@@ -81,7 +94,7 @@ public class RadioTest {
 
     @Test
     public void shouldCurrentNumberBelowMin() {
-        Radio number = new Radio();
+        Radio number = new Radio(10);
         number.setCurrentNumber(-2);
 
         int expected = 0;
